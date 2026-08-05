@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { DATA } from "@/data/resume";
-
-export const runtime = "edge";
 
 export const alt = DATA.name;
 export const size = {
@@ -15,15 +15,14 @@ const BORDER = "#21262d";
 const FG = "#e6edf3";
 const MUTED = "#8b949e";
 
+// Read from disk rather than fetch(): this renders at build time under the
+// Node runtime, where fetching a file:// URL is not implemented.
 const getFontData = async () => {
     try {
+        const fontDir = join(process.cwd(), "public", "fonts");
         const [cabinetGrotesk, clashDisplay] = await Promise.all([
-            fetch(
-                new URL("../../public/fonts/CabinetGrotesk-Medium.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
-            fetch(
-                new URL("../../public/fonts/ClashDisplay-Semibold.ttf", import.meta.url)
-            ).then((res) => res.arrayBuffer()),
+            readFile(join(fontDir, "CabinetGrotesk-Medium.ttf")),
+            readFile(join(fontDir, "ClashDisplay-Semibold.ttf")),
         ]);
         return { cabinetGrotesk, clashDisplay };
     } catch (error) {
