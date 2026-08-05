@@ -1,47 +1,46 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Portfolio
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+My personal site — [github.com/Juan-Miguel-alvarado](https://github.com/Juan-Miguel-alvarado)
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+Built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, [shadcn/ui](https://ui.shadcn.com/)
+and [Magic UI](https://magicui.design/).
 
-# Features
+## Structure
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+Everything that is *content* lives in two files — there is no CMS and no database:
 
-# Getting Started Locally
+| File | What it holds |
+|------|---------------|
+| [`src/data/resume.tsx`](src/data/resume.tsx) | Name, bio, skills, projects, contact and social links |
+| [`src/data/uses.ts`](src/data/uses.ts) | The `/uses` page — my Arch + Hyprland setup |
 
-1. Clone this repository to your local machine:
+Routes:
 
-   ```bash
-   git clone https://github.com/dillionverma/portfolio
-   ```
+- `/` — hero, about, skills, projects, contact
+- `/uses` — the desktop and tooling I work in, mirroring my
+  [setup guide](https://github.com/Juan-Miguel-alvarado/arch-customization-guide)
 
-2. Move to the cloned directory
+The `work`, `education` and `hackathons` arrays in `resume.tsx` are empty, and their sections
+hide themselves when empty — fill them in and they reappear.
 
-   ```bash
-   cd portfolio
-   ```
+## Running it
 
-3. Install dependencies:
+```bash
+pnpm install
+pnpm dev
+```
 
-   ```bash
-   pnpm install
-   ```
+Then open <http://localhost:3000>.
 
-4. Start the local Server:
+```bash
+pnpm build     # production build
+pnpm start     # serve the build
+pnpm lint      # eslint
+```
 
-   ```bash
-   pnpm dev
-   ```
+`DATA.url` in `resume.tsx` is the site's canonical origin — it feeds `metadataBase` and every
+OpenGraph URL, so it has to point at the real domain before deploying.
 
-5. Open the [Config file](./src/data/resume.tsx) and make changes
+## License
 
-# License
-
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+MIT — see [LICENSE](LICENSE).
