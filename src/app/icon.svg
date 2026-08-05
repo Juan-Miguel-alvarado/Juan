@@ -3,10 +3,10 @@
   <path
     d="M18 19 L31 32 L18 45"
     fill="none"
-    stroke="#7ee787"
+    stroke="#ffffff"
     stroke-width="7"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
-  <rect x="37" y="38" width="11" height="7" rx="2" fill="#7ee787" />
+  <rect x="37" y="38" width="11" height="7" rx="2" fill="#ffffff" />
 </svg>
