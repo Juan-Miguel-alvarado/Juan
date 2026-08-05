@@ -13,7 +13,7 @@ import { Vite } from "@/components/ui/svgs/vite";
 export const DATA = {
   name: "Juan Alvarado",
   initials: "JA",
-  url: "https://github.com/Juan-Miguel-alvarado",
+  url: "https://juanalv.netlify.app",
   location: "Colombia",
   locationLink: "https://www.google.com/maps/place/colombia",
   description:

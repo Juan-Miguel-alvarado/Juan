@@ -1,4 +1,3 @@
- 
 import { ImageResponse } from "next/og";
 import { DATA } from "@/data/resume";
 
@@ -10,6 +9,11 @@ export const size = {
     height: 630,
 };
 export const contentType = "image/png";
+
+const BG = "#0d1117";
+const BORDER = "#21262d";
+const FG = "#e6edf3";
+const MUTED = "#8b949e";
 
 const getFontData = async () => {
     try {
@@ -29,105 +33,109 @@ const getFontData = async () => {
 };
 
 const styles = {
-    outerWrapper: {
+    outer: {
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        backgroundColor: BG,
+        padding: "48px",
+    },
+    card: {
         height: "100%",
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "#ffffff",
-        position: "relative",
+        justifyContent: "space-between",
+        border: `1px solid ${BORDER}`,
+        borderRadius: "20px",
+        padding: "56px 64px",
     },
-    middleWrapper: {
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#ffffff",
-        position: "relative",
-        padding: "40px",
-    },
-    wrapper: {
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#fafafa",
-        position: "relative",
-        padding: "40px",
-        border: "1px solid #e5e5e5",
-        borderRadius: "12px",
-    },
-    imageSection: {
-        position: "absolute",
-        top: "40px",
-        left: "40px",
+    // the same >_ mark as the favicon
+    mark: {
         display: "flex",
         alignItems: "center",
-        zIndex: "2",
     },
-    mainContainer: {
+    chevron: {
+        display: "flex",
+        fontFamily: "Clash Display",
+        fontSize: "72px",
+        lineHeight: 1,
+        color: FG,
+    },
+    cursor: {
+        display: "flex",
+        width: "36px",
+        height: "9px",
+        borderRadius: "4px",
+        backgroundColor: FG,
+        marginLeft: "18px",
+        marginTop: "38px",
+    },
+    body: {
         display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
-        height: "100%",
-        width: "100%",
-        position: "relative",
-        zIndex: "1",
-    },
-    image: {
-        width: "140px",
-        height: "140px",
-        borderRadius: "24px",
-        border: "4px solid #e5e5e5",
-        objectFit: "cover",
     },
     title: {
         fontFamily: "Clash Display",
-        fontSize: "48px",
-        fontWeight: "600",
-        lineHeight: "1.1",
-        textAlign: "left",
-        color: "#000000",
-        marginBottom: "16px",
-        letterSpacing: "-0.02em",
-        maxWidth: "900px",
+        fontSize: "76px",
+        lineHeight: 1.05,
+        color: FG,
+        letterSpacing: "-0.015em",
+        marginBottom: "20px",
     },
     description: {
-        fontSize: "20px",
-        fontWeight: "400",
-        lineHeight: "1.5",
-        textAlign: "left",
-        maxWidth: "800px",
-        color: "#404040",
-        marginBottom: "32px",
-        textWrap: "balance",
+        fontFamily: "Cabinet Grotesk",
+        fontSize: "30px",
+        lineHeight: 1.4,
+        color: MUTED,
+        maxWidth: "820px",
+    },
+    footer: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    stack: {
+        display: "flex",
+        fontFamily: "Cabinet Grotesk",
+        fontSize: "24px",
+        color: MUTED,
+        letterSpacing: "0.06em",
+    },
+    domain: {
+        display: "flex",
+        fontFamily: "Cabinet Grotesk",
+        fontSize: "24px",
+        color: MUTED,
     },
 } as const;
 
 export default async function Image() {
     try {
         const fontData = await getFontData();
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
+        const stack = DATA.skills
+            .slice(0, 4)
+            .map((s) => s.name)
+            .join("  ·  ");
+        const domain = DATA.url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
         return new ImageResponse(
             (
-                <div style={styles.outerWrapper}>
-                    <div style={styles.middleWrapper}>
-                        <div style={styles.wrapper}>
-                            {imageUrl && (
-                                <div style={styles.imageSection}>
-                                    <img src={imageUrl} alt={DATA.name} style={styles.image} />
-                                </div>
-                            )}
-                            <div style={styles.mainContainer}>
-                                <div style={styles.title}>{DATA.name}</div>
-                                {DATA.description && (
-                                    <div style={styles.description}>{DATA.description}</div>
-                                )}
-                            </div>
+                <div style={styles.outer}>
+                    <div style={styles.card}>
+                        <div style={styles.mark}>
+                            <div style={styles.chevron}>&gt;</div>
+                            <div style={styles.cursor} />
+                        </div>
+
+                        <div style={styles.body}>
+                            <div style={styles.title}>{DATA.name}</div>
+                            <div style={styles.description}>{DATA.description}</div>
+                        </div>
+
+                        <div style={styles.footer}>
+                            <div style={styles.stack}>{stack}</div>
+                            <div style={styles.domain}>{domain}</div>
                         </div>
                     </div>
                 </div>
@@ -140,12 +148,6 @@ export default async function Image() {
                             name: "Cabinet Grotesk",
                             data: fontData.cabinetGrotesk,
                             weight: 400,
-                            style: "normal",
-                        },
-                        {
-                            name: "Cabinet Grotesk",
-                            data: fontData.cabinetGrotesk,
-                            weight: 700,
                             style: "normal",
                         },
                         {
@@ -168,5 +170,3 @@ export default async function Image() {
         );
     }
 }
-
-
