@@ -19,7 +19,7 @@ export const DATA = {
   description:
     "I build tools that read your stuff and tell you something you missed.",
   summary:
-    "I play [competitive chess](https://www.chess.com/member/scandimala), which taught me to sit with a hard position instead of grabbing the first move that looks reasonable — the same habit debugging rewards.\n\nThe rest of the time I build [developer tools in Rust](https://github.com/Juan-Miguel-alvarado/why-cli) and TypeScript on the web.",
+    "I play [competitive chess](https://www.chess.com/member/scandimala), and it taught me the habit I lean on most: sit with a hard position instead of grabbing the first move that looks reasonable. Calculate the lines, throw out the ones that collapse, then commit. Debugging rewards the same discipline.\n\nThe rest of the time I build [developer tools in Rust](https://github.com/Juan-Miguel-alvarado/why-cli) — local-first, no network, no configuration — and TypeScript on the web.",
   avatarUrl: "/juan.jpg",
   skills: [
     { name: "Rust", icon: Rust },
