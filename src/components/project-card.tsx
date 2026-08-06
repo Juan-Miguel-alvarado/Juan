@@ -19,7 +19,7 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-contain bg-muted"
+      className="w-full h-48 object-contain bg-muted grayscale transition-[filter] duration-300 ease-out group-hover:grayscale-0"
       onError={() => setImageError(true)}
     />
   );
@@ -57,7 +57,7 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+        "group flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
         className
       )}
     >
@@ -75,7 +75,7 @@ export function ProjectCard({
               loop
               muted
               playsInline
-              className="w-full h-48 object-cover"
+              className="w-full h-48 object-cover grayscale transition-[filter] duration-300 ease-out group-hover:grayscale-0"
             />
           ) : image ? (
             <ProjectImage src={image} alt={title} />
