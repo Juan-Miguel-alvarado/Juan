@@ -1,4 +1,4 @@
-# Portfolio
+# Portfolio.
 
 My personal site — [github.com/Juan-Miguel-alvarado](https://github.com/Juan-Miguel-alvarado)
 
