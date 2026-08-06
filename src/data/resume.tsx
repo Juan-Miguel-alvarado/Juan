@@ -19,7 +19,7 @@ export const DATA = {
   description:
     "I build tools that read your stuff and tell you something you missed.",
   summary:
-    "I play competitive chess, and it has shaped how I write software more than any tutorial ever did. A sharp position rewards the same habits a hard bug does: don't play the first move that looks reasonable, calculate the lines, throw out the ones that collapse, then commit to a plan and live with it. Sitting with a problem instead of guessing at it is a skill you can train, and I trained it over a board.\n\nThe rest of the time I build [developer tools in Rust](https://github.com/Juan-Miguel-alvarado/why-cli) — local-first, no network, no configuration — and [TypeScript on the web](/#projects).",
+    "I play [competitive chess](https://www.chess.com/member/scandimala), and it has shaped how I write software more than any tutorial ever did. A sharp position rewards the same habits a hard bug does: don't play the first move that looks reasonable, calculate the lines, throw out the ones that collapse, then commit to a plan and live with it. Sitting with a problem instead of guessing at it is a skill you can train, and I trained it over a board.\n\nThe rest of the time I build [developer tools in Rust](https://github.com/Juan-Miguel-alvarado/why-cli) — local-first, no network, no configuration — and TypeScript on the web.",
   avatarUrl: "/juan.jpg",
   skills: [
     { name: "Rust", icon: Rust },
