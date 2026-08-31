@@ -11,15 +11,15 @@ import { Tailwind } from "@/components/ui/svgs/tailwindcss";
 import { Vite } from "@/components/ui/svgs/vite";
 
 export const DATA = {
-  name: "Juan Alvarado",
-  initials: "JA",
+  name: "Alvarado",
+  initials: "A",
   url: "https://juanalv.netlify.app",
   location: "Colombia",
   locationLink: "https://www.google.com/maps/place/colombia",
   description:
     "I build tools that read your stuff and tell you something you missed.",
   summary:
-    "I play [competitive chess](https://www.chess.com/member/scandimala), and it taught me the habit I lean on most: sit with a hard position instead of grabbing the first move that looks reasonable. Calculate the lines, throw out the ones that collapse, then commit. Debugging rewards the same discipline.\n\nThe rest of the time I build [developer tools in Rust](https://github.com/Juan-Miguel-alvarado/why-cli) — local-first, no network, no configuration — and TypeScript on the web.",
+    "I play [competitive chess](https://www.chess.com/member/catsoor), and it taught me the habit I lean on most: sit with a hard position instead of grabbing the first move that looks reasonable. Calculate the lines, throw out the ones that collapse, then commit. Debugging rewards the same discipline.\n\nThe rest of the time I build [developer tools in Rust](https://github.com/Juan-Miguel-alvarado/why-cli) — local-first, no network, no configuration — and TypeScript on the web.",
   avatarUrl: "/juan.jpg",
   skills: [
     { name: "Rust", icon: Rust },
